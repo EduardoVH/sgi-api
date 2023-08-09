@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AssetServiceImpl implements IAssetService {
 
@@ -61,5 +63,11 @@ public class AssetServiceImpl implements IAssetService {
     private GetAssetResponse from(Long id){
         Asset asset =  repository.findById(id).orElseThrow(()->new RuntimeException("Asset do not exist"));
         return from(asset);
+    }
+
+    public List<String> getListOfStoredAssets() {
+        // Lógica para obtener la lista de activos almacenados desde Google Drive u otro sistema de almacenamiento
+        // Retorna la lista de nombres de activos
+        return null;
     }
 }
